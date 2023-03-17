@@ -152,7 +152,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9a9757d314bb1b342b6e43c9f41f8063, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  flag: {fileID: 8950721638798485379, guid: 4c4a7e9b60499dc418153708a68c14e0, type: 3}
+  flagPrefab: {fileID: 8950721638798485379, guid: 4c4a7e9b60499dc418153708a68c14e0, type: 3}
   flagBase: {fileID: 1455931330}
   playerA1: {fileID: 3709786465747470253, guid: e1b42a5a2afed8147ba3d5a627866f90, type: 3}
   playerA2: {fileID: 7255328446620073126, guid: 54239e537c07bc7489da2f5a02c4b1d9, type: 3}
@@ -160,9 +160,11 @@ MonoBehaviour:
   playerB2: {fileID: 6425790006094927842, guid: 5e2aad81dc3bd4d47b2b86324457c687, type: 3}
   baseA: {fileID: 1104853275}
   baseB: {fileID: 816471114}
+  flagInstance: {fileID: 0}
   flagHeld: 0
   flagCaptured: 0
   playerWithFlag: {fileID: 0}
+  winningTeam: 
 --- !u!4 &282952540
 Transform:
   m_ObjectHideFlags: 0
@@ -272,9 +274,10 @@ GameObject:
   m_Component:
   - component: {fileID: 816471117}
   - component: {fileID: 816471116}
+  - component: {fileID: 816471118}
   m_Layer: 0
   m_Name: BaseB
-  m_TagString: Untagged
+  m_TagString: TeamB
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -346,6 +349,32 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!61 &816471118
+BoxCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 816471114}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0, y: 0}
+  m_SpriteTilingProperty:
+    border: {x: 0, y: 0, z: 0, w: 0}
+    pivot: {x: 0.5, y: 0.5}
+    oldSize: {x: 1, y: 1}
+    newSize: {x: 1, y: 1}
+    adaptiveTilingThreshold: 0.5
+    drawMode: 0
+    adaptiveTiling: 0
+  m_AutoTiling: 0
+  serializedVersion: 2
+  m_Size: {x: 1, y: 1}
+  m_EdgeRadius: 0
 --- !u!1 &1104853275
 GameObject:
   m_ObjectHideFlags: 0
@@ -356,9 +385,10 @@ GameObject:
   m_Component:
   - component: {fileID: 1104853277}
   - component: {fileID: 1104853276}
+  - component: {fileID: 1104853278}
   m_Layer: 0
   m_Name: BaseA
-  m_TagString: Untagged
+  m_TagString: TeamA
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -430,6 +460,32 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!61 &1104853278
+BoxCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1104853275}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0, y: 0}
+  m_SpriteTilingProperty:
+    border: {x: 0, y: 0, z: 0, w: 0}
+    pivot: {x: 0.5, y: 0.5}
+    oldSize: {x: 1, y: 1}
+    newSize: {x: 1, y: 1}
+    adaptiveTilingThreshold: 0.5
+    drawMode: 0
+    adaptiveTiling: 0
+  m_AutoTiling: 0
+  serializedVersion: 2
+  m_Size: {x: 1, y: 1}
+  m_EdgeRadius: 0
 --- !u!1 &1455931330
 GameObject:
   m_ObjectHideFlags: 0
@@ -440,7 +496,6 @@ GameObject:
   m_Component:
   - component: {fileID: 1455931333}
   - component: {fileID: 1455931332}
-  - component: {fileID: 1455931331}
   m_Layer: 0
   m_Name: FlagBase
   m_TagString: Untagged
@@ -448,18 +503,6 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!114 &1455931331
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1455931330}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: d7bd274504cc50d48a505434c0bb143e, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!212 &1455931332
 SpriteRenderer:
   m_ObjectHideFlags: 0
