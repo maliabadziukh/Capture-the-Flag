@@ -297,6 +297,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   speed: 100
   target: {fileID: 0}
+  bulletPrefab: {fileID: 5899598593515159265, guid: 81b0d219f5794f343924e0648b73871e, type: 3}
+  shootingPoint: {fileID: 170889951}
+  shootingInterval: 5
+  shootingTimer: 0
 --- !u!58 &507759910
 CircleCollider2D:
   m_ObjectHideFlags: 0
