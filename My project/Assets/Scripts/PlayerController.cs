@@ -8,16 +8,19 @@ public class PlayerController : MonoBehaviour{
    float horizontal;
    float vertical;
    public float runSpeed = 20.0f;
-   void Start (){
+   public float health = 1;
+    public GameObject healthBar;
+
+    void Start (){
       body = GetComponent<Rigidbody2D>();
       gameController = FindObjectOfType<GameController>();
 
    }
 
    void Update (){
-      
       horizontal = Input.GetAxisRaw("Horizontal");
-      vertical = Input.GetAxisRaw("Vertical"); 
+      vertical = Input.GetAxisRaw("Vertical");
+      healthBar.transform.localScale = new Vector3(health, 1, 1);
    }
 
    private void FixedUpdate(){  
@@ -25,13 +28,12 @@ public class PlayerController : MonoBehaviour{
    }
 
    public void OnTriggerEnter2D(Collider2D collision){
-      Debug.Log("Collided with something");
+      
       if(collision.gameObject.tag=="Flag" && gameController.flagHeld == false){
-            Debug.Log("Collided with flag");
-            gameController.flagHeld = true;
-            gameController.playerWithFlag = this.gameObject;
-            Debug.Log(gameController.playerWithFlag.transform.position);
-        }
+         gameController.flagHeld = true;
+         gameController.playerWithFlag = this.gameObject;
+      } 
+      
    }
 }
 
