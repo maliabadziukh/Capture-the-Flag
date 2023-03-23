@@ -17,8 +17,9 @@ public class FlagController : MonoBehaviour
     }
      public void OnTriggerEnter2D(Collider2D collision){
      if (collision.gameObject.name =="BaseA" || collision.gameObject.name =="BaseB"){
-            gameController.flagCaptured = true;
             gameController.winningTeam = collision.gameObject.tag;
+            gameController.flagCaptured = true;
+            
         }
    }
 }

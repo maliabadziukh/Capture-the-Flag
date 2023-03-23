@@ -10,6 +10,7 @@ public class EnemyController : MonoBehaviour
     public Transform shootingPoint;
     public float shootingInterval = 2f;
     public float shootingTimer = 0f;
+    int offset = 90;
     void Start()
     {
         
@@ -19,7 +20,7 @@ public class EnemyController : MonoBehaviour
     void Update()
     {
         if (target != null){
-            float angle = Mathf.Atan2(target.transform.position.y - transform.position.y, target.transform.position.x -transform.position.x ) * Mathf.Rad2Deg;
+            float angle = offset + Mathf.Atan2(target.transform.position.y - transform.position.y, target.transform.position.x -transform.position.x ) * Mathf.Rad2Deg;
             Quaternion targetRotation = Quaternion.Euler(new Vector3(0, 0, angle));
             transform.rotation = Quaternion.RotateTowards(transform.rotation, targetRotation, speed * Time.deltaTime);
 
@@ -33,7 +34,6 @@ public class EnemyController : MonoBehaviour
     }
     public void OnTriggerEnter2D(Collider2D collision){
         if (collision.gameObject.tag=="Player"){
-            Debug.Log("Attack");
             target = collision.gameObject;
         }
     }
