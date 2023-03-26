@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 673081302061941866}
   - component: {fileID: 673081302061941869}
   - component: {fileID: 673081302061941868}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Player
   m_TagString: Player
   m_Icon: {fileID: 0}
@@ -50,6 +50,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   runSpeed: 20
   health: 1
+  Base: {fileID: 0}
+  respawnDelay: 5
   healthBar: {fileID: 5054735535014995387}
 --- !u!50 &673081302061941869
 Rigidbody2D:
@@ -71,7 +73,7 @@ Rigidbody2D:
   m_Interpolate: 0
   m_SleepingMode: 1
   m_CollisionDetection: 0
-  m_Constraints: 0
+  m_Constraints: 4
 --- !u!61 &673081302061941868
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -108,7 +110,7 @@ GameObject:
   m_Component:
   - component: {fileID: 2459567847985549644}
   - component: {fileID: 7060467749221394097}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: HealthSprite
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -192,7 +194,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4731835448808401307}
   - component: {fileID: 4731835448808401316}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Spaceship
   m_TagString: Player
   m_Icon: {fileID: 0}
@@ -275,7 +277,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 4044469834220527637}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Fill
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -308,7 +310,7 @@ GameObject:
   m_Component:
   - component: {fileID: 3577368200500914112}
   - component: {fileID: 4425473858814846823}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Background
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -391,7 +393,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 6745013484475363549}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Healthbar
   m_TagString: Untagged
   m_Icon: {fileID: 0}

@@ -23,6 +23,9 @@ public class Bullet : MonoBehaviour
             collision.gameObject.GetComponent<PlayerController>().health -= damage;
             Destroy(gameObject);
         }
+        else  if (collision.gameObject.name !="Enemy"){
+            Destroy(gameObject);
+        }
         
     }    
 }
