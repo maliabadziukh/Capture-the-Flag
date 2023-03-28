@@ -32,10 +32,7 @@ public class GameController : MonoBehaviour
     
     void Update()
     {
-        if (flagHeld == true){
-            
-            flagInstance.transform.position = playerWithFlag.transform.position;
-        }
+        
         if (flagCaptured ==true){
             Debug.Log(winningTeam + " wins!");
         }

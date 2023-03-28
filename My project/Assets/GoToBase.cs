@@ -1,25 +1,25 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.EventSystems;
 
-public class GoToFlag : StateMachineBehaviour
+public class GoToBase : StateMachineBehaviour
 {
     private AgentBehaviours agentBehaviours;
-    // OnStateEnter is called when a transition starts and the state machine starts to evaluate this state
+   
     override public void OnStateEnter(Animator animator, AnimatorStateInfo stateInfo, int layerIndex)
     {
         agentBehaviours = animator.GetComponent<AgentBehaviours>();
 
     }
 
-    // OnStateUpdate is called on each Update frame between OnStateEnter and OnStateExit callbacks
     override public void OnStateUpdate(Animator animator, AnimatorStateInfo stateInfo, int layerIndex)
     {
-        agentBehaviours.GoToFlag();
-        if (agentBehaviours.holdingFlag == true)
+        agentBehaviours.GoToBase();  
+
+        //if flag is lost then go get it
+        if (agentBehaviours.holdingFlag != true)
         {
-            animator.SetInteger("AgentState", 1);
+            animator.SetInteger("AgentState", 0);
         }
     }
 
