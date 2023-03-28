@@ -16,7 +16,7 @@ public class GameController : MonoBehaviour
     public bool flagHeld = false;
     public bool flagCaptured = false;
 
-    public GameObject playerWithFlag;
+    public GameObject playerWithFlag = null;
     public string winningTeam = null;
 
     void Start()

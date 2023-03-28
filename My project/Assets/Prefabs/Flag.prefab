@@ -13,7 +13,7 @@ GameObject:
   - component: {fileID: 6741329352134868749}
   - component: {fileID: 8424785285013936141}
   - component: {fileID: 6233908522544884693}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Flag
   m_TagString: Flag
   m_Icon: {fileID: 0}
@@ -29,7 +29,7 @@ Transform:
   m_GameObject: {fileID: 8950721638798485379}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: -6.8199906, y: 6.889998, z: 0}
-  m_LocalScale: {x: 1.601, y: 1.601, z: 1.601}
+  m_LocalScale: {x: 0.86514837, y: 0.86514837, z: 0.86514837}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}

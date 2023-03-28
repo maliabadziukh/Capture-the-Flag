@@ -10,7 +10,7 @@ public class GoToFlag : StateMachineBehaviour
     override public void OnStateEnter(Animator animator, AnimatorStateInfo stateInfo, int layerIndex)
     {
         Debug.Log("GoToFlag");
-        agentBehaviours = animator.GetComponentInChildren<AgentBehaviours>();
+        agentBehaviours = animator.GetComponent<AgentBehaviours>();
 
     }
 
@@ -18,6 +18,10 @@ public class GoToFlag : StateMachineBehaviour
     override public void OnStateUpdate(Animator animator, AnimatorStateInfo stateInfo, int layerIndex)
     {
         agentBehaviours.GoToFlag();
+        if (agentBehaviours.holdingFlag == true)
+        {
+            animator.SetInteger("AgentState", 1);
+        }
     }
 
     // OnStateExit is called when a transition ends and the state machine finishes evaluating this state

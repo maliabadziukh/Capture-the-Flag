@@ -20,7 +20,7 @@ public class Bullet : MonoBehaviour
 
     void OnTriggerEnter2D(Collider2D collision){
         if (collision.gameObject.CompareTag("Player")){
-            collision.gameObject.GetComponent<PlayerController>().health -= damage;
+            collision.gameObject.GetComponent<AgentBehaviours>().health -= damage;
             Destroy(gameObject);
         }
         else  if (collision.gameObject.name !="Enemy"){
