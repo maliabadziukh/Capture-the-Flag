@@ -2,30 +2,34 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Bullet : MonoBehaviour
+public class BulletA : MonoBehaviour
 {
-    public float speed = 10f;
+   
     public float lifetime = 2f;
-    public float damage = 10;
+    public float damage = 0.2f;
     void Start()
     {
         Destroy(gameObject, lifetime);
     }
 
-    
+
     void Update()
     {
-        
+
     }
 
-    void OnTriggerEnter2D(Collider2D collision){
-        if (collision.gameObject.CompareTag("Player")){
+    void OnTriggerEnter2D(Collider2D collision)
+    {
+        if (collision.gameObject.tag == "TeamB")
+        {
             collision.gameObject.GetComponent<AgentBehaviours>().health -= damage;
             Destroy(gameObject);
         }
-        else  if (collision.gameObject.name !="Enemy"){
+        if (collision.gameObject.tag != "TeamA")
+        {
             Destroy(gameObject);
         }
-        
-    }    
+
+
+    }
 }

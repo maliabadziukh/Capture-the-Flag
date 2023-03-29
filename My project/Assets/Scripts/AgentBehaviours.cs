@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.AI;
 
@@ -13,6 +14,7 @@ public class AgentBehaviours : MonoBehaviour
     public GameObject healthBar;
     public Vector3 basePos;
     GameObject spaceshipTransform;
+    public GameObject bulletPrefab;
     
     void Start()
     {
@@ -30,6 +32,7 @@ public class AgentBehaviours : MonoBehaviour
   
     void Update()
     {
+        //rotate in movement direction
         Vector3 velocity = agent.velocity;
         if (velocity.magnitude > 0.1f)
         {
@@ -62,5 +65,27 @@ public class AgentBehaviours : MonoBehaviour
         agent.SetDestination(basePos);
     }
 
-    
+    public void FollowPlayer(GameObject player)
+    {
+        if (Vector3.Distance(transform.position,  player.transform.position) > 5)
+        {
+            agent.SetDestination(player.transform.position);
+        }
+       
+    }
+
+    public float DistanceToTarget(GameObject target)
+    {
+        float distance = Vector3.Distance(transform.position, target.transform.position);
+        return distance;
+    }
+
+    public void ShootTarget()
+    {
+
+        GameObject bullet = Instantiate(bulletPrefab, transform.position, transform.rotation);
+        bullet.GetComponent<Rigidbody2D>().velocity = transform.right * 20f;
+    }
+
+
 }

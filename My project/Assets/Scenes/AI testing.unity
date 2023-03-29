@@ -136,7 +136,7 @@ GameObject:
   - component: {fileID: 282118959}
   m_Layer: 0
   m_Name: BaseA
-  m_TagString: TeamA
+  m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -6173,7 +6173,7 @@ TilemapCollider2D:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 286604563}
-  m_Enabled: 0
+  m_Enabled: 1
   m_Density: 1
   m_Material: {fileID: 0}
   m_IsTrigger: 0
@@ -6229,13 +6229,17 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   flagPrefab: {fileID: 8950721638798485379, guid: 4c4a7e9b60499dc418153708a68c14e0, type: 3}
   flagBase: {fileID: 1493046039}
-  playerA1: {fileID: 673081302061941865, guid: ca9bb60180cc590419b25c6f1ec546f8, type: 3}
-  playerA2: {fileID: 673081302061941865, guid: 7ac7959e5ae502545817fab0d911249d, type: 3}
-  playerB1: {fileID: 673081302061941865, guid: 3376554350dc2c840a26df99126fe58f, type: 3}
-  playerB2: {fileID: 673081302061941865, guid: 3376554350dc2c840a26df99126fe58f, type: 3}
+  playerA1: {fileID: 673081302061941865, guid: 830c7ad4902ef044599c9eee3ace1cbe, type: 3}
+  playerA2: {fileID: 673081302061941865, guid: 8f653e5ba5323fa4493df25825ceada8, type: 3}
+  playerB1: {fileID: 673081302061941865, guid: 1a3574497b23e6541888c87f6711a8c7, type: 3}
+  playerB2: {fileID: 673081302061941865, guid: ca9bb60180cc590419b25c6f1ec546f8, type: 3}
   baseA: {fileID: 282118956}
   baseB: {fileID: 1226222340}
   flagInstance: {fileID: 0}
+  A1: {fileID: 0}
+  A2: {fileID: 0}
+  B1: {fileID: 0}
+  B2: {fileID: 0}
   flagHeld: 0
   flagCaptured: 0
   playerWithFlag: {fileID: 0}
@@ -6399,7 +6403,7 @@ GameObject:
   - component: {fileID: 1226222343}
   m_Layer: 0
   m_Name: BaseB
-  m_TagString: TeamB
+  m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -44520,7 +44524,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 2029821251442508148, guid: 87af84d8f56f6e74b90712ef8fe8bb36, type: 3}
       propertyPath: m_Radius
-      value: 5.526402
+      value: 9.92782
       objectReference: {fileID: 0}
     - target: {fileID: 2029821251442508148, guid: 87af84d8f56f6e74b90712ef8fe8bb36, type: 3}
       propertyPath: m_Offset.x
@@ -44574,9 +44578,17 @@ PrefabInstance:
       propertyPath: m_Name
       value: Enemy
       objectReference: {fileID: 0}
+    - target: {fileID: 2029821251442508150, guid: 87af84d8f56f6e74b90712ef8fe8bb36, type: 3}
+      propertyPath: m_TagString
+      value: Enemy
+      objectReference: {fileID: 0}
     - target: {fileID: 2029821251442508151, guid: 87af84d8f56f6e74b90712ef8fe8bb36, type: 3}
       propertyPath: offset
       value: 45
+      objectReference: {fileID: 0}
+    - target: {fileID: 2029821251442508151, guid: 87af84d8f56f6e74b90712ef8fe8bb36, type: 3}
+      propertyPath: shootingInterval
+      value: 1.5
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 87af84d8f56f6e74b90712ef8fe8bb36, type: 3}

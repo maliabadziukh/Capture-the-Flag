@@ -33,13 +33,15 @@ public class EnemyController : MonoBehaviour
         
     }
     public void OnTriggerEnter2D(Collider2D collision){
-        if (collision.gameObject.tag=="Player"){
+        if (collision.gameObject.tag=="TeamA" || collision.gameObject.tag == "TeamB")
+        {
             target = collision.gameObject;
         }
     }
 
     public void OnTriggerExit2D(Collider2D collision){
-        if (collision.gameObject.tag == "Player"){
+        if (collision.gameObject.tag == "TeamA" || collision.gameObject.tag == "TeamB")
+        {
             target = null;
         }
     }
@@ -47,6 +49,6 @@ public class EnemyController : MonoBehaviour
 
     void ShootPlayer(){
         GameObject bullet = Instantiate(bulletPrefab, shootingPoint.position, shootingPoint.rotation);
-        bullet.GetComponent<Rigidbody2D>().velocity = shootingPoint.right * bullet.GetComponent<Bullet>().speed;
+        bullet.GetComponent<Rigidbody2D>().velocity = shootingPoint.right * bullet.GetComponent<EnemyBullet>().speed;
     }
 }

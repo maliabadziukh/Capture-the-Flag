@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UIElements;
 
 public class GameController : MonoBehaviour
 {
@@ -13,6 +14,10 @@ public class GameController : MonoBehaviour
     public GameObject baseA;
     public GameObject baseB;
     public GameObject flagInstance;
+    public GameObject A1;
+    public GameObject A2;
+    public GameObject B1;
+    public GameObject B2;
     public bool flagHeld = false;
     public bool flagCaptured = false;
 
@@ -22,10 +27,10 @@ public class GameController : MonoBehaviour
     void Start()
     {
         flagInstance = Instantiate(flagPrefab, flagBase.transform.position, flagBase.transform.rotation);
-        SpawnObject(playerA1, baseA);
-        SpawnObject(playerA2, baseA);
-        SpawnObject(playerB1, baseB);
-        SpawnObject(playerB2, baseB);
+        A1 = Instantiate(playerA1, baseA.transform.position, baseA.transform.rotation);
+        A2 = Instantiate(playerA2, baseA.transform.position, baseA.transform.rotation);
+        B1 = Instantiate(playerB1, baseB.transform.position, baseB.transform.rotation);
+        B2 = Instantiate(playerB2, baseB.transform.position, baseB.transform.rotation);
 
     }
 
@@ -38,9 +43,4 @@ public class GameController : MonoBehaviour
         }
     }
     
-
-
-    void SpawnObject(GameObject gameObject, GameObject position){
-        Instantiate(gameObject, position.transform.position, position.transform.rotation);
-    }
 }

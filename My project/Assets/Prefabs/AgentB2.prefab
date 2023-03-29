@@ -15,8 +15,8 @@ GameObject:
   - component: {fileID: 8490805204598311635}
   - component: {fileID: 2955706752750848583}
   m_Layer: 6
-  m_Name: AgentA1
-  m_TagString: TeamA
+  m_Name: AgentB2
+  m_TagString: TeamB
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -54,7 +54,7 @@ MonoBehaviour:
   health: 1
   healthBar: {fileID: 5054735535014995387}
   basePos: {x: 0, y: 0, z: 0}
-  bulletPrefab: {fileID: 5899598593515159265, guid: 297ae6d4f76b6324d824ffae2ce423dc, type: 3}
+  bulletPrefab: {fileID: 5899598593515159265, guid: 4f5876969146da2468dae270c6768a3b, type: 3}
 --- !u!50 &673081302061941869
 Rigidbody2D:
   serializedVersion: 4
@@ -302,7 +302,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: -400113490, guid: 51179393ce7f2864bb62f2dc8ff9d372, type: 3}
+  m_Sprite: {fileID: -180095325, guid: 51179393ce7f2864bb62f2dc8ff9d372, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0

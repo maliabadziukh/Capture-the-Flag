@@ -15,7 +15,7 @@ GameObject:
   - component: {fileID: 8490805204598311635}
   - component: {fileID: 2955706752750848583}
   m_Layer: 6
-  m_Name: AgentA1
+  m_Name: AgentA2
   m_TagString: TeamA
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -112,7 +112,7 @@ Animator:
   m_GameObject: {fileID: 673081302061941865}
   m_Enabled: 1
   m_Avatar: {fileID: 0}
-  m_Controller: {fileID: 9100000, guid: a01695a8e241624419afd7c12aa3f190, type: 2}
+  m_Controller: {fileID: 9100000, guid: f094e594e7e742e46821cec9f5888591, type: 2}
   m_CullingMode: 0
   m_UpdateMode: 0
   m_ApplyRootMotion: 0
