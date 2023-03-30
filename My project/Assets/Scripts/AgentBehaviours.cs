@@ -15,6 +15,7 @@ public class AgentBehaviours : MonoBehaviour
     public Vector3 basePos;
     GameObject spaceshipTransform;
     public GameObject bulletPrefab;
+    float respawnDelay = 5f;
     
     void Start()
     {
@@ -49,6 +50,12 @@ public class AgentBehaviours : MonoBehaviour
         else
         {
             holdingFlag = false;
+        }
+
+        if (health <= 0)
+        {
+            gameObject.SetActive(false);
+            Invoke("Respawn", respawnDelay);
         }
     }
 
@@ -137,5 +144,12 @@ public class AgentBehaviours : MonoBehaviour
         bullet.GetComponent<Rigidbody2D>().velocity = direction.normalized * 5f;
     }
 
+    void Respawn()
+    {
+        
+        transform.position = basePos;
+        health = 1;
+        gameObject.SetActive(true);
+    }
 
 }
