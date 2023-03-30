@@ -20,15 +20,17 @@ public class GameController : MonoBehaviour
     public GameObject B2;
     public bool flagHeld = false;
     public bool flagCaptured = false;
-    public GameObject startScreen;
 
     public GameObject playerWithFlag = null;
     public string winningTeam = null;
 
     void Start()
     {
-        startScreen.SetActive(true);
-        
+        flagInstance = Instantiate(flagPrefab, flagBase.transform.position, flagBase.transform.rotation);
+        A1 = Instantiate(playerA1, baseA.transform.position, baseA.transform.rotation);
+        A2 = Instantiate(playerA2, baseA.transform.position, baseA.transform.rotation);
+        B1 = Instantiate(playerB1, baseB.transform.position, baseB.transform.rotation);
+        B2 = Instantiate(playerB2, baseB.transform.position, baseB.transform.rotation);
 
     }
 
@@ -39,16 +41,6 @@ public class GameController : MonoBehaviour
         if (flagCaptured ==true){
             Debug.Log(winningTeam + " wins!");
         }
-    }
-
-    public void StartGame()
-    {
-        startScreen.SetActive(false);
-        flagInstance = Instantiate(flagPrefab, flagBase.transform.position, flagBase.transform.rotation);
-        A1 = Instantiate(playerA1, baseA.transform.position, baseA.transform.rotation);
-        A2 = Instantiate(playerA2, baseA.transform.position, baseA.transform.rotation);
-        B1 = Instantiate(playerB1, baseB.transform.position, baseB.transform.rotation);
-        B2 = Instantiate(playerB2, baseB.transform.position, baseB.transform.rotation);
     }
     
 }

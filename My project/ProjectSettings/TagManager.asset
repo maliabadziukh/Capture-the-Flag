@@ -8,6 +8,7 @@ TagManager:
   - TeamA
   - TeamB
   - Bullet
+  - Enemy
   layers:
   - Default
   - TransparentFX

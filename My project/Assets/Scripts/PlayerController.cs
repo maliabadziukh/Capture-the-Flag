@@ -9,8 +9,9 @@ public class PlayerController : MonoBehaviour{
    float vertical;
    public float runSpeed = 20.0f;
    public float health = 1;
+   public GameObject Base;
+    public float respawnDelay = 5.0f;
     public GameObject healthBar;
-
     void Start (){
       body = GetComponent<Rigidbody2D>();
       gameController = FindObjectOfType<GameController>();
@@ -21,7 +22,11 @@ public class PlayerController : MonoBehaviour{
       horizontal = Input.GetAxisRaw("Horizontal");
       vertical = Input.GetAxisRaw("Vertical");
       healthBar.transform.localScale = new Vector3(health, 1, 1);
-   }
+      if (health <= 0){
+            gameObject.SetActive(false);
+            Invoke("Respawn", respawnDelay);
+        }
+    }
 
    private void FixedUpdate(){  
       body.velocity = new Vector2(horizontal * runSpeed, vertical * runSpeed);
@@ -35,5 +40,11 @@ public class PlayerController : MonoBehaviour{
       } 
       
    }
+
+   void Respawn(){
+        transform.position = Base.transform.position;
+        health = 1;
+        gameObject.SetActive(true);
+    }
 }
 
