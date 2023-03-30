@@ -241,7 +241,7 @@ GameObject:
   - component: {fileID: 4731835448808401316}
   m_Layer: 6
   m_Name: Spaceship
-  m_TagString: Player
+  m_TagString: TeamA
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0

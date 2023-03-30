@@ -9,6 +9,7 @@ public class BulletA : MonoBehaviour
     public float damage = 0.2f;
     void Start()
     {
+        Debug.Log("bullet a spawned");
         Destroy(gameObject, lifetime);
     }
 
@@ -22,11 +23,14 @@ public class BulletA : MonoBehaviour
     {
         if (collision.gameObject.tag == "TeamB")
         {
+            Debug.Log("team b collision");
             collision.gameObject.GetComponent<AgentBehaviours>().health -= damage;
             Destroy(gameObject);
         }
-        if (collision.gameObject.tag != "TeamA")
+        if (collision.gameObject.tag != "TeamA" && collision.gameObject.tag != "Enemy")
         {
+            Debug.Log("a different collision");
+            Debug.Log(collision.gameObject.name);
             Destroy(gameObject);
         }
 

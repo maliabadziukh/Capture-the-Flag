@@ -74,17 +74,67 @@ public class AgentBehaviours : MonoBehaviour
        
     }
 
-    public float DistanceToTarget(GameObject target)
+    public GameObject[] TargetsInRange()
     {
-        float distance = Vector3.Distance(transform.position, target.transform.position);
-        return distance;
+        List<GameObject> targets = new List<GameObject>();
+
+        if (this.gameObject.CompareTag("TeamA"))
+        {
+            foreach (GameObject opponent in GameObject.FindGameObjectsWithTag("TeamB"))
+            {
+                if (Vector3.Distance(transform.position, opponent.transform.position) < 10)
+                {
+                    //Debug.Log("found opponent" + opponent.name);
+                    targets.Add(opponent);
+                }
+            }
+        }
+        else if (this.gameObject.CompareTag("TeamB"))
+        {
+            foreach (GameObject opponent in GameObject.FindGameObjectsWithTag("TeamA"))
+            {
+                if (Vector3.Distance(transform.position, opponent.transform.position) < 10)
+                {
+                    //Debug.Log("found opponent" + opponent.name);
+                    targets.Add(opponent);
+                }
+                
+
+            }
+        }
+        return targets.ToArray();
     }
 
-    public void ShootTarget()
+    public void ShootTarget(GameObject target)
     {
 
-        GameObject bullet = Instantiate(bulletPrefab, transform.position, transform.rotation);
-        bullet.GetComponent<Rigidbody2D>().velocity = transform.right * 20f;
+        //Transform spaceship = transform.Find("Spaceship");
+        //Vector3 direction = target.transform.position - spaceship.position;
+        //direction.z = 0f; 
+        //spaceship.rotation = Quaternion.LookRotation(Vector3.forward, direction);
+
+        //GameObject bullet = Instantiate(bulletPrefab, spaceship.position, spaceship.rotation);
+        //bullet.transform.rotation *= Quaternion.Euler(0f, 0f, 90f);
+        //bullet.GetComponent<Rigidbody2D>().velocity = spaceship.right * 2f;
+
+
+
+        Transform spaceship = transform.Find("Spaceship");
+
+        // Calculate direction to target
+        Vector3 direction = target.transform.position - spaceship.position;
+        direction.z = 0f;
+
+        // Apply 90 degree offset
+        //Vector3 bulletDirection = Quaternion.AngleAxis(-90, Vector3.forward) * direction;
+
+        // Rotate spaceship to face the target
+        spaceship.rotation = Quaternion.LookRotation(Vector3.forward, direction);
+
+        // Spawn bullet and apply rotation and velocity
+        GameObject bullet = Instantiate(bulletPrefab, spaceship.position, spaceship.rotation);
+        bullet.transform.rotation = Quaternion.LookRotation(Vector3.forward, direction);
+        bullet.GetComponent<Rigidbody2D>().velocity = direction.normalized * 5f;
     }
 
 

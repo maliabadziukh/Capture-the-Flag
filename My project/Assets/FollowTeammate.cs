@@ -6,7 +6,7 @@ public class FollowTeammate : StateMachineBehaviour
 {
     GameController gameController;
     AgentBehaviours agentBehaviours;
-    // OnStateEnter is called when a transition starts and the state machine starts to evaluate this state
+   
     override public void OnStateEnter(Animator animator, AnimatorStateInfo stateInfo, int layerIndex)
     {
         gameController = FindObjectOfType<GameController>();
@@ -17,9 +17,10 @@ public class FollowTeammate : StateMachineBehaviour
     override public void OnStateUpdate(Animator animator, AnimatorStateInfo stateInfo, int layerIndex)
     {
         agentBehaviours.FollowPlayer(gameController.A1);
-        if (agentBehaviours.DistanceToTarget(gameController.B1) < 10)
+        if (agentBehaviours.TargetsInRange().Length > 0)
         {
-            animator.SetInteger("AgentState", 2); 
+            //Debug.Log("call the shoot function now");
+            animator.SetInteger("AgentState", 2);
         }
     }
 
