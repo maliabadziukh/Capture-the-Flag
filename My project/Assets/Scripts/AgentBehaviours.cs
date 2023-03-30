@@ -118,7 +118,7 @@ public class AgentBehaviours : MonoBehaviour
         //bullet.GetComponent<Rigidbody2D>().velocity = spaceship.right * 2f;
 
 
-
+         
         Transform spaceship = transform.Find("Spaceship");
 
         // Calculate direction to target
