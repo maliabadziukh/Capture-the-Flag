@@ -45,7 +45,7 @@ public class GameController : MonoBehaviour
     }
 
     public void StartGame()
-    {
+    {   //deactivate UI panels and instantiate players + flag to start the game
         startScreen.SetActive(false);
         endScreenA.SetActive(false);
         endScreenB.SetActive(false);
@@ -56,6 +56,7 @@ public class GameController : MonoBehaviour
         B2 = Instantiate(playerB2, baseB.transform.position, baseB.transform.rotation);
     }
 
+    //destroy players and flag and show the right end screen
     void EndGame()
     {
         Destroy(A1);

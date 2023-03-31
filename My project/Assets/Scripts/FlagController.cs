@@ -14,12 +14,15 @@ public class FlagController : MonoBehaviour
    
     void Update()
     {
+        //update the flag position to the player who's holding it
         if (gameController.playerWithFlag != null)
         {
             flagPos = new Vector3(gameController.playerWithFlag.transform.position.x, gameController.playerWithFlag.transform.position.y, -2);
             gameObject.transform.position = flagPos;
         }
     }
+
+    //if collides with one of the players -> they are holding the flag now, if collides with a base -> change winning team and end game
     public void OnTriggerEnter2D(Collider2D collision)
     {
         if (collision.gameObject.tag == "TeamA" || collision.gameObject.tag == "TeamB")

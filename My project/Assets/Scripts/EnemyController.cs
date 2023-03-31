@@ -12,28 +12,17 @@ public class EnemyController : MonoBehaviour
     public float shootingInterval = 2f;
     public float shootingTimer = 0f;
     List<GameObject> targets = new List<GameObject>();
-
     int offset = 90;
+
     void Start()
     {
         StartCoroutine(NewTarget());
     }
 
-    // Update is called once per frame
+    
     void Update()
     {
-        //if (target != null){
-        //    float angle = offset + Mathf.Atan2(target.transform.position.y - transform.position.y, target.transform.position.x -transform.position.x ) * Mathf.Rad2Deg;
-        //    Quaternion targetRotation = Quaternion.Euler(new Vector3(0, 0, angle));
-        //    transform.rotation = Quaternion.RotateTowards(transform.rotation, targetRotation, speed * Time.deltaTime);
-
-        //    shootingTimer += Time.deltaTime;
-        //    if (shootingTimer >= shootingInterval){
-        //        ShootPlayer();
-        //        shootingTimer = 0f;
-        //    }
-        //}
-        
+        //if there are targets within range, choose a random target, turn towards it and call the shooting function if the interval has passed
          if (targets.Count > 0)
          {
             if (!targets.Contains(target))
@@ -55,6 +44,8 @@ public class EnemyController : MonoBehaviour
          }
         
     }
+
+    //add a player to possible targets list when they enter the collider
     public void OnTriggerEnter2D(Collider2D collision){
         if (collision.gameObject.tag=="TeamA" || collision.gameObject.tag == "TeamB")
         {
@@ -62,6 +53,7 @@ public class EnemyController : MonoBehaviour
         }
     }
 
+    //remove a player from possible targets list when they exit the collider 
     public void OnTriggerExit2D(Collider2D collision){
         if (targets.Contains(collision.gameObject))
         {
@@ -69,6 +61,7 @@ public class EnemyController : MonoBehaviour
         }
     }
 
+    //coroutine that runs every 2 seconds and chooses a new random target from the list
     IEnumerator NewTarget()
     {
         yield return new WaitForSeconds(2f);

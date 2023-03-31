@@ -9,7 +9,7 @@ public class BulletA : MonoBehaviour
     public float damage = 0.2f;
     void Start()
     {
-        Debug.Log("bullet a spawned");
+        //destroy bullet after lifetime has passed 
         Destroy(gameObject, lifetime);
     }
 
@@ -21,6 +21,7 @@ public class BulletA : MonoBehaviour
 
     void OnTriggerEnter2D(Collider2D collision)
     {
+        //destroys the bullet on collision with an object and does damage if it's an opponent 
         if (collision.gameObject.tag == "TeamB")
         {
             Debug.Log("team b collision");
